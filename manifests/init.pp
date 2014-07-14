@@ -60,9 +60,9 @@ class squid3 (
   package { 'squid3_package': ensure => installed, name => $package_name }
 
   service { 'squid3_service':
+    ensure    => running,
     enable    => true,
     name      => $service_name,
-    ensure    => running,
     restart   => "service ${service_name} reload",
     path      => ['/sbin', '/usr/sbin'],
     hasstatus => true,
